@@ -33,7 +33,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
-          html-profiler: true
+          htmlproofer: true
 
       - name: Test Site
         run: bash tools/test
