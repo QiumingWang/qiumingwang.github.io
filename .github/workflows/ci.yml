@@ -20,7 +20,7 @@ jobs:
 
     strategy:
       matrix:
-        ruby: [2.7, 3.2]
+        ruby: [3.2]
 
     steps:
       - name: Checkout
@@ -33,6 +33,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
+          html-profiler: true
 
       - name: Test Site
         run: bash tools/test
