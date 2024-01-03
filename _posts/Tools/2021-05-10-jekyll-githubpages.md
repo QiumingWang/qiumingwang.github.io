@@ -1,11 +1,10 @@
 ---
 title: 搭建个人博客：Jekyll + Github Pages + VSCode
-author: zjpzhao
 date: 2021-05-10 16:13:00 +0800
 categories: [Tools]
 tags: [Jekyll,Blog,vscode]
-
 ---
+
 ## Github Page + Jekyll
 我选用的是Jekyll主题[Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy)，其效果页面和使用手册在[Live Demo](https://chirpy.cotes.info/)，创建该主题的page repo有两种方式：
 1. 使用[Chripy Starter](https://github.com/cotes2020/chirpy-starter)：非常容易进行主题的版本升级，隔离无关的主题文件项目，仓库比较简洁。
