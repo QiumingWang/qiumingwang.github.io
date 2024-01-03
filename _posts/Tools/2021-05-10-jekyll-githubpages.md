@@ -1,6 +1,6 @@
 ---
 title: 搭建个人博客：Jekyll + Github Pages + VSCode
-date: 2021-05-10 16:13:00 +0800
+time: 2021-05-10 16:13:00 +0800
 categories: [Tools]
 tags: [Jekyll,Blog,vscode]
 ---
