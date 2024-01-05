@@ -382,7 +382,7 @@ def get_bboxes(...):
 再次欢迎大家使用 MMDetection，也非常欢迎社区贡献！
 
 最后附上总图：
-![](Pasted%20image%2020240105012601.png)
+![](Pasted_image_20240105012601.png)
 
   
 
