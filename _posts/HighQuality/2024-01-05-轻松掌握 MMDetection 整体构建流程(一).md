@@ -11,7 +11,7 @@ tags:
 > 来源：[https://zhuanlan.zhihu.com/p/337375549](https://zhuanlan.zhihu.com/p/337375549)
 ## 0 摘要
 
-大家好，今天我们将开启新的解读篇章，本系列解读主要分享 **MMDetection** 中已经复现的主流目标检测模型。
+大家好，今天我们将开启新的解读篇章，本系列解读主要分享 **MMDetection** 中已经复现的主流目标检测模型。
 
 众所周知，目标检测算法比较复杂，细节比较多，难以复现，而我们推出的 MMDetection 开源框架则希望解决上述问题。目前 MMdetection 已经复现了大部分主流和前沿模型，例如 Faster R-CNN 系列、Mask R-CNN 系列、YOLO 系列和比较新的 DETR 等等，模型库非常丰富，star 接近 13k，在学术研究和工业落地中应用非常广泛。
 
@@ -25,7 +25,7 @@ tags:
 
 由于后续 MMDetection 结构可能会有改变，本文分析的版本是 V2.7，如果后续版本有比较大的改动，会进行同步更新。
 
-GitHub 链接：[https://github.com/open-mmlab/mmdetection](https://link.zhihu.com/?target=https%3A//github.com/open-mmlab/mmdetection) 欢迎 star ～
+GitHub 链接：[https://github.com/open-mmlab/mmdetection](https://link.zhihu.com/?target=https%3A//github.com/open-mmlab/mmdetection) 欢迎 star ～
 
 ## 1 目标检测算法抽象流程
 
@@ -144,7 +144,7 @@ __all__ = [
 
 需要注意的是：**two-stage 或者 mutli-stage 算法，会额外包括一个区域提取器 roi extractor，用于将不同大小的 RoI 特征图统一成相同大小**。
 
-虽然 head 部分的网络构建比较简单，但是由于正负样本属性定义、正负样本采样和 bbox 编解码模块都在 head 模块中进行组合调用，故 MMDetection **中最复杂的模块就是 head**。在最后的整体流程部分会对该模块进行详细分析。
+虽然 head 部分的网络构建比较简单，但是由于正负样本属性定义、正负样本采样和 bbox 编解码模块都在 head 模块中进行组合调用，故 MMDetection **中最复杂的模块就是 head**。在最后的整体流程部分会对该模块进行详细分析。
 
 ### 2.1.4 Enhance
 
@@ -336,7 +336,7 @@ def forward_train(...):
     return losses
 ```
 
-对于不同的 head，虽然 forward 内容不一样，但是依然可以抽象为： `outs = self(x)`
+对于不同的 head，虽然 forward 内容不一样，但是依然可以抽象为： `outs = self(x)`
 
 ```python
 def forward(self, feats):
@@ -382,7 +382,7 @@ def get_bboxes(...):
 再次欢迎大家使用 MMDetection，也非常欢迎社区贡献！
 
 最后附上总图：
-![](Pasted_image_20240105012601.png)
+![??](/assets/img/Pasted_image_20240105012601.png)
 
   
 
