@@ -13,38 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/HighQuality/轻松掌握 MMDetection 整体构建流程(二).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "94f22081deb85541",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/HighQuality/轻松掌握 MMDetection 整体构建流程(一).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "5b792342faf74455",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "c0f786ba778c8a8b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/Tools/2021-05-10-jekyll-githubpages.md",
+                "file": "_posts/blogs/2024-01-11-记录一下今天的心情.md",
                 "mode": "source",
                 "source": false
               }
@@ -100,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 229.5,
-    "collapsed": true
+    "width": 229.5
   },
   "right": {
     "id": "32761683d8b4f0f9",
@@ -117,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/HighQuality/轻松掌握 MMDetection 整体构建流程(一).md",
+                "file": "_posts/blogs/2024-01-11-记录一下今天的心情.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/HighQuality/轻松掌握 MMDetection 整体构建流程(一).md",
+                "file": "_posts/blogs/2024-01-11-记录一下今天的心情.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -157,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/HighQuality/轻松掌握 MMDetection 整体构建流程(一).md"
+                "file": "_posts/blogs/2024-01-11-记录一下今天的心情.md"
               }
             }
           }
@@ -178,11 +146,13 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "94f22081deb85541",
+  "active": "459c97e9d0dad7ed",
   "lastOpenFiles": [
+    "assets/img/2024-01-11-记录一下今天的心情__2024-01-11_213638.png",
+    "_posts/Tools/2021-05-10-jekyll-githubpages.md",
+    "_posts/blogs/2024-01-11-记录一下今天的心情.md",
     "_posts/HighQuality/轻松掌握 MMDetection 整体构建流程(二).md",
     "_posts/2024-01-02-First-Blog.md",
-    "_posts/Tools/2021-05-10-jekyll-githubpages.md",
     "_posts/HighQuality/轻松掌握 MMDetection 整体构建流程(一).md",
     "assets/img/Pasted image 20240105012601.png",
     "assets/img/Pasted image 20240105012511.png",
