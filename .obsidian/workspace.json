@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/HighQuality/2024-01-05-轻松掌握 MMDetection 整体构建流程(二).md",
+                "file": "_posts/mmlab/2024-01-13-mmdet整理.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 229.5
+    "width": 229.5,
+    "collapsed": true
   },
   "right": {
     "id": "32761683d8b4f0f9",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/HighQuality/2024-01-05-轻松掌握 MMDetection 整体构建流程(二).md",
+                "file": "_posts/mmlab/2024-01-13-mmdet整理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/HighQuality/2024-01-05-轻松掌握 MMDetection 整体构建流程(二).md",
+                "file": "_posts/mmlab/2024-01-13-mmdet整理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/HighQuality/2024-01-05-轻松掌握 MMDetection 整体构建流程(二).md"
+                "file": "_posts/mmlab/2024-01-13-mmdet整理.md"
               }
             }
           }
@@ -148,13 +149,15 @@
   },
   "active": "459c97e9d0dad7ed",
   "lastOpenFiles": [
+    "_posts/2024-01-02-First-Blog.md",
+    "_posts/mmlab/2024-01-13-mmdet整理.md",
+    "_posts/mmlab",
+    "_posts/HighQuality/2024-01-05-轻松掌握 MMDetection 整体构建流程(二).md",
     "_posts/HighQuality/2024-01-05-轻松掌握 MMDetection 整体构建流程(一).md",
     "_posts/blogs/2024-01-11-记录一下今天的心情.md",
     "_posts/Tools/2021-05-10-jekyll-githubpages.md",
-    "_posts/HighQuality/2024-01-05-轻松掌握 MMDetection 整体构建流程(二).md",
     "assets/img/2024-01-11-记录一下今天的心情__2024-01-11_213638.png",
     "_posts/HighQuality/轻松掌握 MMDetection 整体构建流程(二).md",
-    "_posts/2024-01-02-First-Blog.md",
     "_posts/HighQuality/轻松掌握 MMDetection 整体构建流程(一).md",
     "assets/img/Pasted image 20240105012601.png",
     "assets/img/Pasted image 20240105012511.png",
