@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/det/2024-01-14-检测系列汇总.md",
+                "file": "_posts/HighQuality/2024-01-14-missing-label.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/det/2024-01-14-检测系列汇总.md",
+                "file": "_posts/HighQuality/2024-01-14-missing-label.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/det/2024-01-14-检测系列汇总.md",
+                "file": "_posts/HighQuality/2024-01-14-missing-label.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/det/2024-01-14-检测系列汇总.md"
+                "file": "_posts/HighQuality/2024-01-14-missing-label.md"
               }
             }
           }
@@ -146,11 +146,12 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "5ab84c68cb37a6cc",
+  "active": "459c97e9d0dad7ed",
   "lastOpenFiles": [
+    "_posts/det/2024-01-14-检测系列汇总.md",
+    "_posts/HighQuality/2024-01-14-missing-label.md",
     "_posts/HighQuality/CleanCode-python.md",
     "_posts/det/2024-01-13-mmdet整理.md",
-    "_posts/det/2024-01-14-检测系列汇总.md",
     "_posts/2024-01-02-First-Blog.md",
     "_posts/mmlab/2024-01-13-mmdet整理.md",
     "_posts/mmlab",
