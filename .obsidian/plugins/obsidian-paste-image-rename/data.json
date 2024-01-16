@@ -1,5 +1,5 @@
 {
-  "imageNamePattern": "/assets/img/{{fileName}}_{{imageNameKey}}_{{DATE:YYYY-MM-DD_HHmmss}}",
+  "imageNamePattern": "{{fileName}}_{{imageNameKey}}",
   "dupNumberAtStart": false,
   "dupNumberDelimiter": "_",
   "dupNumberAlways": false,

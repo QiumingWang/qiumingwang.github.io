@@ -1,3 +1,18 @@
 {
-  "accentColor": ""
+  "accentColor": "",
+  "cssTheme": "Blue Topaz",
+  "theme": "obsidian",
+  "baseFontSize": 16,
+  "textFontFamily": "霞鹜文楷,MiSans,OPlusSans 3.0",
+  "showViewHeader": true,
+  "nativeMenus": false,
+  "monospaceFontFamily": "JetBrainsMono Nerd Font,Fira Code",
+  "translucency": false,
+  "interfaceFontFamily": "Microsoft YaHei UI",
+  "enabledCssSnippets": [
+    "yaozhuwa@CSS",
+    "表格优化",
+    "AnuExtendTheme",
+    "预览模式优化-空白行-行间距"
+  ]
 }

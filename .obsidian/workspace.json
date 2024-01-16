@@ -4,16 +4,28 @@
     "type": "split",
     "children": [
       {
-        "id": "300655c92d71c6b0",
+        "id": "a11254627e7053c5",
         "type": "tabs",
         "children": [
           {
-            "id": "459c97e9d0dad7ed",
+            "id": "ee14f695765bcbf9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/HighQuality/2024-01-14-missing-label.md",
+                "file": "_posts/blogs/读书笔记.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "68c7f676742eb2ec",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_posts/blogs/2024-01-11-记录一下今天的心情.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/HighQuality/2024-01-14-missing-label.md",
+                "file": "_posts/blogs/读书笔记.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/HighQuality/2024-01-14-missing-label.md",
+                "file": "_posts/blogs/读书笔记.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,11 +137,40 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/HighQuality/2024-01-14-missing-label.md"
+                "file": "_posts/blogs/读书笔记.md"
               }
             }
+          },
+          {
+            "id": "654aa8eff7c761dc",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "2d9bc7238e2e791b",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              }
+            }
+          },
+          {
+            "id": "f724b884b28c21ec",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -138,6 +179,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "workspaces:管理工作区布局": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -146,18 +188,22 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "459c97e9d0dad7ed",
+  "active": "ee14f695765bcbf9",
   "lastOpenFiles": [
-    "_posts/det/2024-01-14-检测系列汇总.md",
+    "_posts/blogs/2024-01-11-记录一下今天的心情.md",
+    "_posts/blogs/读书笔记.md",
+    "_posts/_pages/template/metaYaml.md",
+    "_posts/_pages/template",
+    "_posts/2024-01-02-First-Blog.md",
+    "_posts/_pages/test.md",
     "_posts/HighQuality/2024-01-14-missing-label.md",
+    "_posts/det/2024-01-14-检测系列汇总.md",
     "_posts/HighQuality/CleanCode-python.md",
     "_posts/det/2024-01-13-mmdet整理.md",
-    "_posts/2024-01-02-First-Blog.md",
     "_posts/mmlab/2024-01-13-mmdet整理.md",
     "_posts/mmlab",
     "_posts/HighQuality/2024-01-05-轻松掌握 MMDetection 整体构建流程(二).md",
     "_posts/HighQuality/2024-01-05-轻松掌握 MMDetection 整体构建流程(一).md",
-    "_posts/blogs/2024-01-11-记录一下今天的心情.md",
     "_posts/Tools/2021-05-10-jekyll-githubpages.md",
     "assets/img/2024-01-11-记录一下今天的心情__2024-01-11_213638.png",
     "_posts/HighQuality/轻松掌握 MMDetection 整体构建流程(二).md",

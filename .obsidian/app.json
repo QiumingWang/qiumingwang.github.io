@@ -1,4 +1,22 @@
 {
+  "newFileLocation": "current",
   "attachmentFolderPath": "assets/img",
-  "useMarkdownLinks": true
+  "spellcheckLanguages": null,
+  "useMarkdownLinks": true,
+  "newLinkFormat": "relative",
+  "alwaysUpdateLinks": true,
+  "showInlineTitle": false,
+  "strictLineBreaks": true,
+  "showFrontmatter": false,
+  "spellcheck": true,
+  "showLineNumber": false,
+  "autoPairMarkdown": true,
+  "readableLineLength": false,
+  "pdfExportSettings": {
+    "includeName": false,
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
 }
