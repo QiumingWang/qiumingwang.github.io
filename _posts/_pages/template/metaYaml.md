@@ -1,7 +1,8 @@
 ---
 title: 
 subtitle: 
-time: "{{date}} {{time}} +8000"
+date: "{{date}} {{time}} +8000"
 categories: 
-tags:
+tags: 
+image:
 ---
