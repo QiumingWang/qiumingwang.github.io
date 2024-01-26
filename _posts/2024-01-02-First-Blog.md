@@ -7,7 +7,7 @@ tags:
   - git
   - basic
   - skill
-published: "false"
+published: "False"
 ---
 
 # 不好配置啊
