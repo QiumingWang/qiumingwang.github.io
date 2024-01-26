@@ -43,8 +43,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -110,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/2024-01-02-First-Blog.md",
+                "file": "_posts/blogs/2024-01-26-情感记录.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/2024-01-02-First-Blog.md",
+                "file": "_posts/blogs/2024-01-26-情感记录.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/2024-01-02-First-Blog.md"
+                "file": "_posts/blogs/2024-01-26-情感记录.md"
               }
             }
           },
@@ -201,15 +200,15 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "0c235e45733a344c",
+  "active": "68c7f676742eb2ec",
   "lastOpenFiles": [
-    "_posts/_pages/template/metaYaml.md",
-    "_posts/2024-01-02-First-Blog.md",
-    "_posts/blogs/2024-01-23-快速做出改变.md",
-    "_posts/blogs/2024-01-26-情感记录.md",
     "_posts/blogs/2024-01-20-让自己更强大.md",
-    "_posts/blogs/2024-01-16-快点进入状态.md",
+    "_posts/blogs/2024-01-23-快速做出改变.md",
     "_posts/blogs/2024-01-17-集中注意准备毕业.md",
+    "_posts/blogs/2024-01-26-情感记录.md",
+    "_posts/2024-01-02-First-Blog.md",
+    "_posts/_pages/template/metaYaml.md",
+    "_posts/blogs/2024-01-16-快点进入状态.md",
     "_posts/blogs/2024-01-16-读书笔记.md",
     "_posts/blogs/2024-01-11-记录一下今天的心情.md",
     "_posts/_pages/test.md",
