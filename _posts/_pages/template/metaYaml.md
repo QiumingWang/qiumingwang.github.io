@@ -1,7 +1,7 @@
 ---
 title: 
 subtitle: 
-date: "{{date}} {{time}} +8000"
+date: "{{date}} {{time}} +0000"
 categories: 
 tags: 
 published: 
