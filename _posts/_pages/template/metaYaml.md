@@ -4,7 +4,7 @@ subtitle:
 date: "{{date}} {{time}} +0000"
 categories: 
 tags: 
-published: 
+published: true
 image:
 ---
 * content
