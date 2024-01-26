@@ -3,7 +3,7 @@
   "attachmentFolderPath": "assets/img",
   "spellcheckLanguages": null,
   "useMarkdownLinks": true,
-  "newLinkFormat": "relative",
+  "newLinkFormat": "absolute",
   "alwaysUpdateLinks": true,
   "showInlineTitle": false,
   "strictLineBreaks": true,

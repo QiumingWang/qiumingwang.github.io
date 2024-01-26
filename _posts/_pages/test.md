@@ -35,3 +35,8 @@ jekyll-archives:
   #   output: true
   #   permalink: /:collections/:path/
 ```
+
+30-40mins
+![](/assets/img/test_test.png)
+80 mins
+![](/assets/img/test_t2.png)
