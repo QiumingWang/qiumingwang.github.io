@@ -1,9 +1,9 @@
 ---
 title: test_collection
-time: 2024-01-06 23:59:00 +8000
+date: 2024-01-06 23:59:00 +8000
 categories:
   - test
-tags: null
+tags:
 ---
 
 # test

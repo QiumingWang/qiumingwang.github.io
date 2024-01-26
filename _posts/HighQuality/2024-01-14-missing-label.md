@@ -1,6 +1,6 @@
 ---
 title: 关于missing label中的一些术语
-time: 2024-01-14 19:33:46 +8000
+date: 2024-01-14 19:33:46 +8000
 categories:
   - det
 tags:

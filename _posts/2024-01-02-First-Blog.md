@@ -1,8 +1,13 @@
 ---
 title: first blog
-time: 2024-01-02 21:46:46 +8000
-categories: [github]
-tags: [git, basic skill]
+date: 2024-01-02 21:46:46 +8000
+categories:
+  - github
+tags:
+  - git
+  - basic
+  - skill
+published: "false"
 ---
 
 # 不好配置啊

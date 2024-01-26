@@ -1,6 +1,6 @@
 ---
 title: 轻松掌握 MMDetection 整体构建流程(一)
-time: 2024-01-05 23:59:00 +8000
+date: 2024-01-05 23:59:00 +8000
 categories:
   - good_artical
 tags:
