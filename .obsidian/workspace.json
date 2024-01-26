@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2024-01-02-First-Blog.md",
+                "file": "_posts/blogs/2024-01-23-快速做出改变.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/2024-01-02-First-Blog.md",
+                "file": "_posts/blogs/2024-01-23-快速做出改变.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/2024-01-02-First-Blog.md",
+                "file": "_posts/blogs/2024-01-23-快速做出改变.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/2024-01-02-First-Blog.md"
+                "file": "_posts/blogs/2024-01-23-快速做出改变.md"
               }
             }
           },
@@ -191,9 +191,9 @@
   },
   "active": "a77c1da3bea9475d",
   "lastOpenFiles": [
+    "_posts/2024-01-02-First-Blog.md",
     "_posts/blogs/2024-01-26-情感记录.md",
     "_posts/blogs/2024-01-23-快速做出改变.md",
-    "_posts/2024-01-02-First-Blog.md",
     "_posts/_pages/test.md",
     "README.md",
     "_posts/_pages/template/metaYaml.md",
