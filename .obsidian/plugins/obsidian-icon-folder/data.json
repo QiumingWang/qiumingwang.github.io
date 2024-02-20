@@ -6,6 +6,8 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "FarCalendarDays",
+      "FarStar",
       "FarTrashCan"
     ],
     "recentlyUsedIconsSize": 5,
@@ -22,5 +24,6 @@
     "iconsBackgroundCheckEnabled": false,
     "iconsInNotesEnabled": true
   },
-  "flash/trash.canvas": "FarTrashCan"
+  "flash/trash.canvas": "FarTrashCan",
+  "_posts": "FarStar"
 }
