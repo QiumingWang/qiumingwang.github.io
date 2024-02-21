@@ -24,6 +24,5 @@
     "iconsBackgroundCheckEnabled": false,
     "iconsInNotesEnabled": true
   },
-  "flash/trash.canvas": "FarTrashCan",
-  "_posts": "FarStar"
+  "flash/trash.canvas": "FarTrashCan"
 }
