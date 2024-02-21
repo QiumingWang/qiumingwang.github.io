@@ -10,6 +10,16 @@
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
 
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+#*.c text
+#*.h text
+*.md text
+*.js text
+*.json text
+*.wxss text
+*.wxml text
+
 # Denote all files that are truly binary and should not be modified.
 *.png binary
 *.jpg binary

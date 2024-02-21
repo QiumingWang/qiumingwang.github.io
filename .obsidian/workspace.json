@@ -8,37 +8,23 @@
         "type": "tabs",
         "children": [
           {
-            "id": "68c7f676742eb2ec",
+            "id": "0c235e45733a344c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "_posts/blogs/2024-01-11-记录一下今天的心情.md",
                 "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "0c235e45733a344c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/det/2024-01-14-检测系列汇总.md",
-                "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "ef026bf74078405c",
+            "id": "6560d088cb56bd4f",
             "type": "leaf",
             "state": {
-              "type": "image",
-              "state": {
-                "file": "assets/img/2024-01-11-记录一下今天的心情__2024-01-11_213638.png"
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -198,8 +184,12 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "68c7f676742eb2ec",
+  "active": "0c235e45733a344c",
   "lastOpenFiles": [
+    "_posts/det/2024-01-14-检测系列汇总.md",
+    "assets/img/2024-01-11-record_today_emotion_2024-01-11_213638.png",
+    "assets/img/2024-01-11-record_today_emotion_2024-01-11_213638.png.md",
+    "_posts/blogs/2024-01-11-记录一下今天的心情.md",
     "_tabs/d2utmpl8IXbC",
     "_tabs/d2utmpdebUuN",
     "_tabs/d2utmpGxlNHE",
@@ -210,15 +200,12 @@
     "_site/tags/jekyll/d2utmpgx8PZN",
     "_site/tags/d2utmpJqJtxh",
     "_site/tags/git/d2utmpZ3sC83",
-    "_site/tags/blog/d2utmpxhfd7c",
     "_posts/HighQuality/2024-01-05-轻松掌握 MMDetection 整体构建流程(一).md",
     "_posts/HighQuality/2024-01-05-轻松掌握 MMDetection 整体构建流程(二).md",
-    "_posts/blogs/2024-01-11-记录一下今天的心情.md",
     "_posts/deep_thought/2024-01-20-小县城高消费迷雾.md",
     "_posts/blogs/我的恋爱观.md",
     "assets/img/2021-05-10-jekyll-githubpages/2021-05-10-16-24-34.png",
     "assets/img/2021-05-10-jekyll-githubpages/2021-05-10-16-24-17.png",
-    "assets/img/2024-01-11-记录一下今天的心情__2024-01-11_213638.png",
     "assets/img/2024-01-26-情感记录_666.png",
     "_posts/blogs/2024-02-19-该认识到前程的严重性.md",
     "assets/img/pondering.jpg",
@@ -231,7 +218,6 @@
     "_posts/blogs/如何提高知己的专注力.md",
     "_posts/blogs/如何提高行动力.md",
     "_posts/blogs/如何提高自制力.md",
-    "_posts/det/2024-01-14-检测系列汇总.md",
     "_posts/det/2024-01-13-mmdet整理.md",
     "_posts/2024-01-02-First-Blog.md",
     "_tabs/about.md",
@@ -241,7 +227,6 @@
     "README.md",
     "_posts/_pages/template/metaYaml.md",
     "_posts/blogs/2024-01-20-让自己更强大.md",
-    "_posts/blogs/2024-01-17-集中注意准备毕业.md",
     "assets/img/4061be948947657421c37796de98818.jpg",
     "assets/img/test_t2.png",
     "assets/img/test_test.png",
