@@ -8,23 +8,15 @@
         "type": "tabs",
         "children": [
           {
-            "id": "0c235e45733a344c",
+            "id": "6560d088cb56bd4f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/blogs/2024-01-11-记录一下今天的心情.md",
+                "file": "_posts/blogs/2024-03-14-latexworkshop踩坑日记.md",
                 "mode": "source",
                 "source": false
               }
-            }
-          },
-          {
-            "id": "6560d088cb56bd4f",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
             }
           }
         ]
@@ -93,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/blogs/2024-01-11-记录一下今天的心情.md",
+                "file": "_posts/blogs/2024-03-14-latexworkshop踩坑日记.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/blogs/2024-01-11-记录一下今天的心情.md",
+                "file": "_posts/blogs/2024-03-14-latexworkshop踩坑日记.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/blogs/2024-01-11-记录一下今天的心情.md"
+                "file": "_posts/blogs/2024-03-14-latexworkshop踩坑日记.md"
               }
             }
           },
@@ -184,12 +176,25 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "0c235e45733a344c",
+  "active": "6560d088cb56bd4f",
   "lastOpenFiles": [
+    "_posts/blogs/2024-02-24-今天真的是糟糕透了.md",
+    "_posts/blogs/2024-03-14-latexworkshop踩坑日记.md",
+    "_posts/blogs/我的爱情观.md",
+    "_posts/blogs/2024-02-23-要写下些什么.md",
+    "_posts/blogs/2024-02-19-该认识到前程的严重性.md",
+    "_posts/deep_thought/2024-01-20-小县城高消费迷雾.md",
+    "_posts/blogs/2024-01-28-应当注意一个人的品质.md",
+    "_posts/blogs/2024-01-26-情感记录.md",
+    "_posts/blogs/2024-01-23-快速做出改变.md",
+    "_posts/blogs/2024-01-17-集中注意准备毕业.md",
+    "_posts/blogs/2024-01-16-快点进入状态.md",
+    "_posts/blogs/2024-01-16-读书笔记.md",
+    "_posts/blogs/2024-01-20-让自己更强大.md",
+    "_posts/blogs/2024-01-11-记录一下今天的心情.md",
     "_posts/det/2024-01-14-检测系列汇总.md",
     "assets/img/2024-01-11-record_today_emotion_2024-01-11_213638.png",
     "assets/img/2024-01-11-record_today_emotion_2024-01-11_213638.png.md",
-    "_posts/blogs/2024-01-11-记录一下今天的心情.md",
     "_tabs/d2utmpl8IXbC",
     "_tabs/d2utmpdebUuN",
     "_tabs/d2utmpGxlNHE",
@@ -202,31 +207,19 @@
     "_site/tags/git/d2utmpZ3sC83",
     "_posts/HighQuality/2024-01-05-轻松掌握 MMDetection 整体构建流程(一).md",
     "_posts/HighQuality/2024-01-05-轻松掌握 MMDetection 整体构建流程(二).md",
-    "_posts/deep_thought/2024-01-20-小县城高消费迷雾.md",
-    "_posts/blogs/我的恋爱观.md",
     "assets/img/2021-05-10-jekyll-githubpages/2021-05-10-16-24-34.png",
     "assets/img/2021-05-10-jekyll-githubpages/2021-05-10-16-24-17.png",
     "assets/img/2024-01-26-情感记录_666.png",
-    "_posts/blogs/2024-02-19-该认识到前程的严重性.md",
     "assets/img/pondering.jpg",
     "assets/img/thinking.jpg",
-    "_posts/blogs/2024-01-28-应当注意一个人的品质.md",
-    "_posts/blogs/2024-01-23-快速做出改变.md",
     "_posts/blogs/如何提高说话的逻辑.md",
     "_posts/blogs/自己的优缺点分析.md",
-    "_posts/blogs/2024-01-26-情感记录.md",
     "_posts/blogs/如何提高知己的专注力.md",
     "_posts/blogs/如何提高行动力.md",
     "_posts/blogs/如何提高自制力.md",
     "_posts/det/2024-01-13-mmdet整理.md",
     "_posts/2024-01-02-First-Blog.md",
     "_tabs/about.md",
-    "_tabs/tags.md",
-    "_tabs/categories.md",
-    "_tabs/archives.md",
-    "README.md",
-    "_posts/_pages/template/metaYaml.md",
-    "_posts/blogs/2024-01-20-让自己更强大.md",
     "assets/img/4061be948947657421c37796de98818.jpg",
     "assets/img/test_t2.png",
     "assets/img/test_test.png",
