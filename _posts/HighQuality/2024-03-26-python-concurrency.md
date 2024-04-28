@@ -58,7 +58,7 @@ p.start()
 
 
 ## Process类介绍
-```py
+```bash
 构造方法：
 
 Process([group [, target [, name [, args [, kwargs]]]]])
@@ -631,6 +631,7 @@ if __name__ == "__main__":
 
 协程：
 > [!WARNING]
+> 
 > 协程中的锁，必须定义在，`asyncio.run()`之中，否则会出现不在loop中的错误。
 > 
 > 在`asyncio.run()`外部启动的`Semaphore`将获取asyncio“默认”循环，因此不能与通过`asyncio.run()`创建的事件循环一起使用。
