@@ -275,11 +275,13 @@ if __name__=='__main__':
 ![300*300](assets/img/v2-764860d01c1e1b045e9a1b01093bdb36_720w.webp)
 
 进程内部结构
+
 ![300*300](assets/img/v2-22c9bffaeb25829cac7c3cc11b7fdb19_720w.webp)
 
 线程内部结构，包含多个程序栈，也就是说可以同时运行多个core
 
 而协程更进一步：直接只有一个程序栈
+
 ![500*500](assets/img/v2-05a2032eb18f9c573963fb48d060ff80_720w.webp)
 
 示例程序：
@@ -632,6 +634,7 @@ if __name__ == "__main__":
 > 协程中的锁，必须定义在，`asyncio.run()`之中，否则会出现不在loop中的错误。
 > 
 > 在`asyncio.run()`外部启动的`Semaphore`将获取asyncio“默认”循环，因此不能与通过`asyncio.run()`创建的事件循环一起使用。
+
 ```python
 import asyncio
 import random
