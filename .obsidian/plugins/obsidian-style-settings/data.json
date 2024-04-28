@@ -32,8 +32,8 @@
   "blue-topaz-theme@@clutter-free-headings": false,
   "blue-topaz-theme@@background-settings-workplace-background-image": true,
   "blue-topaz-theme@@background-settings-workplace-theme-dark": "background-settings-workplace-theme-dark-custom-option",
-  "blue-topaz-theme@@background-settings-workplace-theme-dark-custom": "url(\"https://images5.alphacoders.com/133/1330761.png?dl\")",
-  "blue-topaz-theme@@text-color-code@@dark": "#EFD9D9",
+  "blue-topaz-theme@@background-settings-workplace-theme-dark-custom": "url(\"https://images6.alphacoders.com/553/553536.jpg\")",
+  "blue-topaz-theme@@text-color-code@@dark": "#FF980B",
   "mado-miniflow@@toggle-tab-height": true,
   "mado-miniflow@@theme-color": "theme-violette",
   "blue-topaz-theme@@font-family-h2": "\"MiSans\"",
@@ -81,9 +81,14 @@
   "yaozhuwa@css@@clutter-free-headings": false,
   "Blue-Topaz-Codebox-Highlight@@code-line-number": false,
   "Blue-Topaz-Codebox-Highlight@@code-box-style-option": "codebox-default-style",
-  "Blue-Topaz-Codebox-Highlight@@blur-codebox-frosted-glass": 1,
+  "Blue-Topaz-Codebox-Highlight@@blur-codebox-frosted-glass": 2,
   "blue-topaz-theme@@text-indentation-two-em": false,
   "blue-topaz-theme@@full-width-table": true,
-  "blue-topaz-theme@@blur-depth": 3,
-  "blue-topaz-theme@@brightness-4-bg": 0.9
+  "blue-topaz-theme@@blur-depth": 6,
+  "blue-topaz-theme@@brightness-4-bg": 0.9,
+  "blue-topaz-theme@@font-size-code": "1em",
+  "Blue-Topaz-Codebox-Highlight@@nowrap-edit-codebox": false,
+  "blue-topaz-theme@@font-monospace-theme": "Consolas,  'JetBrains Mono', Monaco, '等距更纱黑体 SC', 'Source Han Mono', 'Microsoft Yahei Mono', 'Segoe UI Emoji', 'Microsoft YaHei', 'Source Code Pro', monospace",
+  "blue-topaz-theme@@font-family-inline-code": "\"Fira Code\", Consolas",
+  "blue-topaz-theme@@font-weight-inline-code": "small"
 }
