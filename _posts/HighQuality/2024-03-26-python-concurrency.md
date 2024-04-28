@@ -272,14 +272,15 @@ if __name__=='__main__':
 	- 还可以通过patch转换 thread和multiprocessing，socket，time等代码
 - asyncio: 从python3.4 开始，在python3.6比较完善
 
-![300*300](assets/v2-764860d01c1e1b045e9a1b01093bdb36_720w.webp)
-进程内部结构
+![300*300](assets/img/v2-764860d01c1e1b045e9a1b01093bdb36_720w.webp)
 
-![300*300](assets/v2-22c9bffaeb25829cac7c3cc11b7fdb19_720w.webp)
+进程内部结构
+![300*300](assets/img/v2-22c9bffaeb25829cac7c3cc11b7fdb19_720w.webp)
+
 线程内部结构，包含多个程序栈，也就是说可以同时运行多个core
 
 而协程更进一步：直接只有一个程序栈
-![](assets/v2-05a2032eb18f9c573963fb48d060ff80_720w.webp)
+![500*500](assets/img/v2-05a2032eb18f9c573963fb48d060ff80_720w.webp)
 
 示例程序：
 ```python
