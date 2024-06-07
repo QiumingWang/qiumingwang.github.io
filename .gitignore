@@ -18,5 +18,9 @@ package-lock.json
 .idea
 .vscode
 
+# obsidian configurations
+.obsidian/workspace.json
+
+
 # Misc
 assets/js/dist
