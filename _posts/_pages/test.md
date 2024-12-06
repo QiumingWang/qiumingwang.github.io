@@ -12,7 +12,9 @@ test somethings
 
 
 
+
 ```yaml
+
 # include:
 # #   - ".htaccess"
 #   - "_pages"
@@ -34,7 +36,9 @@ jekyll-archives:
   # ethos:
   #   output: true
   #   permalink: /:collections/:path/
+
 ```
+
 
 30-40mins
 ![](/assets/img/test_test.png)

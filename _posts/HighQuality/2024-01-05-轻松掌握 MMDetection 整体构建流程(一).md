@@ -69,17 +69,23 @@ GitHub 链接：[https://github.com/open-mmlab/mmdetection](https://link.zhihu.c
 
 backbone 作用主要是特征提取。目前 MMDetection 中已经集成了大部分骨架网络，具体见文件：`mmdet/models/backbones`，V2.7 已经实现的骨架如下：
 
+
 ```python
+
 __all__ = [
     'RegNet', 'ResNet', 'ResNetV1d', 'ResNeXt', 'SSDVGG', 'HRNet', 'Res2Net',
     'HourglassNet', 'DetectoRS_ResNet', 'DetectoRS_ResNeXt', 'Darknet',
     'ResNeSt', 'TridentResNet'
 ]
+
 ```
+
 
 最常用的是 ResNet 系列、ResNetV1d 系列和 Res2Net 系列。如果你需要对骨架进行扩展，可以继承上述网络，然后通过注册器机制注册使用。一个典型用法为：
 
+
 ```python
+
 # 骨架的预训练权重路径
 pretrained='torchvision://resnet50',
 backbone=dict(
@@ -91,7 +97,9 @@ backbone=dict(
     norm_cfg=dict(type='BN', requires_grad=True), 
     norm_eval=True,
     style='pytorch'),
+
 ```
+
 
 通过 MMCV 中的注册器机制，你可以通过 dict 形式的配置来实例化任何已经注册的类，非常方便和灵活。
 
@@ -101,22 +109,30 @@ backbone=dict(
 
 neck 可以认为是 backbone 和 head 的连接层，主要负责对 backbone 的特征进行高效融合和增强，能够对输入的单尺度或者多尺度特征进行融合、增强输出等。具体见文件：`mmdet/models/necks`，V2.7 已经实现的 neck 如下：
 
+
 ```python
+
 __all__ = [
     'FPN', 'BFP', 'ChannelMapper', 'HRFPN', 'NASFPN', 'FPN_CARAFE', 'PAFPN',
     'NASFCOS_FPN', 'RFP', 'YOLOV3Neck'
 ]
+
 ```
+
 
 最常用的应该是 FPN，一个典型用法是：
 
+
 ```python
+
 neck=dict(
     type='FPN',
     in_channels=[256, 512, 1024, 2048], # 骨架多尺度特征图输出通道
     out_channels=256, # 增强后通道输出
     num_outs=5), # 输出num_outs个多尺度特征图
+
 ```
+
 
 ### 2.1.3 Head
 
@@ -128,7 +144,9 @@ MMDetection 中 head 模块又划分为 two-stage 所需的 RoIHead 和 one-stag
 
 目前 V2.7 中已经实现的 dense_heads 包括：
 
+
 ```python
+
 __all__ = [
     'AnchorFreeHead', 'AnchorHead', 'GuidedAnchorHead', 'FeatureAdaption',
     'RPNHead', 'GARPNHead', 'RetinaHead', 'RetinaSepBNHead', 'GARetinaHead',
@@ -138,7 +156,9 @@ __all__ = [
     'YOLACTSegmHead', 'YOLACTProtonet', 'YOLOV3Head', 'PAAHead',
     'SABLRetinaHead', 'CentripetalHead', 'VFNetHead', 'TransformerHead'
 ]
+
 ```
+
 
 几乎每个算法都包括一个独立的 head，而 roi_heads 比较杂，就不列出了。
 
@@ -160,13 +180,17 @@ enhance 是即插即用、能够对特征进行增强的模块，其具体代码
 
 对应的代码在`mmdet/core/bbox/assigners`中，V2.7 主要包括：
 
+
 ```python
+
 __all__ = [
     'BaseAssigner', 'MaxIoUAssigner', 'ApproxMaxIoUAssigner', 
     'PointAssigner', 'ATSSAssigner', 'CenterRegionAssigner', 'GridAssigner',
     'HungarianAssigner'
 ]
+
 ```
+
 
 ### 2.1.6 BBox Sampler
 
@@ -176,13 +200,17 @@ __all__ = [
 
 对应的代码在`mmdet/core/bbox/samplers`中，V2.7 主要包括：
 
+
 ```python
+
 __all__ = [
     'BaseSampler', 'PseudoSampler', 'RandomSampler',
     'InstanceBalancedPosSampler', 'IoUBalancedNegSampler', 'CombinedSampler',
     'OHEMSampler', 'SamplingResult', 'ScoreHLRSampler'
 ]
+
 ```
+
 
 ### 2.1.7 BBox Encoder
 
@@ -194,13 +222,17 @@ __all__ = [
 
 对应的代码在`mmdet/core/bbox/coder`中，V2.7 主要包括：
 
+
 ```python
+
 __all__ = [
     'BaseBBoxCoder', 'PseudoBBoxCoder', 'DeltaXYWHBBoxCoder',
     'LegacyDeltaXYWHBBoxCoder', 'TBLRBBoxCoder', 'YOLOBBoxCoder',
     'BucketingBBoxCoder'
 ]
+
 ```
+
 
 ### 2.1.8 Loss
 
@@ -212,7 +244,9 @@ loss 的设计也是各大算法重点改进对象，常用的 loss 如下：
 
 对应的代码在`mmdet/models/losses`中，V2.7 主要包括：
 
+
 ```python
+
 __all__ = [
     'cross_entropy', 'binary_cross_entropy',
     'mask_cross_entropy', 'CrossEntropyLoss', 'sigmoid_focal_loss',
@@ -224,7 +258,9 @@ __all__ = [
     'GaussianFocalLoss', 'QualityFocalLoss', 'DistributionFocalLoss',
     'VarifocalLoss'
 ]
+
 ```
+
 
 可以看出 MMDetection 中已经实现了非常多的 loss，可以直接使用。
 
@@ -250,18 +286,24 @@ MMDetection 目前这部分还会继续完善，也欢迎大家一起贡献。
 
 其对应的文件在`mmdet/core/post_processing`中，V2.7 主要包括：
 
+
 ```python
+
 __all__ = [
     'multiclass_nms', 'merge_aug_proposals', 'merge_aug_bboxes',
     'merge_aug_scores', 'merge_aug_masks', 'fast_nms'
 ]
+
 ```
+
 
 ### 2.2.3 Testing tricks
 
 为了提高检测性能，测试阶段也会采用 trick。这个阶段的 tricks 也非常多，难以完全统一，最典型的是多尺度测试以及各种模型集成手段，典型配置如下：
 
+
 ```python
+
 dict(
     type='MultiScaleFlipAug',
     img_scale=(1333, 800),
@@ -274,7 +316,9 @@ dict(
         dict(type='ImageToTensor', keys=['img']),
         dict(type='Collect', keys=['img']),
     ])
+
 ```
+
 
 ![](https://pic3.zhimg.com/80/v2-16e307727f0c3e941ec72c21f214b982_720w.webp)
 
@@ -282,7 +326,9 @@ dict(
 
 在分析完每个训练流程的各个核心组件后，为了方便大家理解整个算法构建，下面分析 MMDetection 是如何组合各个组件进行训练的，这里以 one-stage 检测器为例，two-stage 也比较类似。
 
+
 ```python
+
 class SingleStageDetector(---):
 
    def __init__(...):
@@ -314,7 +360,9 @@ class SingleStageDetector(---):
             for det_bboxes, det_labels in bbox_list
         ]
         return bbox_results
+
 ```
+
 
 以上就是整个检测器算法训练和测试最简逻辑，可以发现训练部分最核心的就是`bbox_head.forward_train`，测试部分最核心的是`bbox_head.get_bboxes`，下面单独简要分析。
 
@@ -322,7 +370,9 @@ class SingleStageDetector(---):
 
 forward_train 是通用函数，如下所示：
 
+
 ```python
+
 def forward_train(...):
     # 调用每个head自身的forward方法
     outs = self(x)
@@ -334,11 +384,15 @@ def forward_train(...):
     losses = self.loss(*loss_inputs, gt_bboxes_ignore=gt_bboxes_ignore)
     # 返回
     return losses
+
 ```
+
 
 对于不同的 head，虽然 forward 内容不一样，但是依然可以抽象为： `outs = self(x)`
 
+
 ```python
+
 def forward(self, feats):
    # 多尺度特征图，一个一个迭代进行forward_single
    return multi_apply(self.forward_single, feats)
@@ -347,11 +401,15 @@ def forward_single(self, x):
    # 运行各个head独特的head forward方法，得到预测图
    ....
    return cls_score, bbox_pred...
+
 ```
+
 
 而对于不同的 head，其 loss 计算部分也比较复杂，可以简单抽象为：`losses = self.loss(...)`
 
+
 ```python
+
 def loss(...):
     # 1 生成anchor-base需要的anchor或者anchor-free需要的points
     # 2 利用gt bbox对特征图或者anchor计算其正负和忽略样本属性
@@ -359,19 +417,25 @@ def loss(...):
     # 4 对gt bbox进行bbox编码
     # 5 loss计算，并返回
     return dict(loss_cls=losses_cls, loss_bbox=losses_bbox,...)
+
 ```
+
 
 ### 2.3.2 bbox_head.get_bboxes
 
 get_bboxes函数更加简单
 
+
 ```python
+
 def get_bboxes(...):
    # 1 生成anchor-base需要的anchor或者anchor-free需要的points
    # 2 遍历每个输出层，遍历batch内部的每张图片，对每张图片先提取指定个数的预测结果，缓解后面后处理压力；对保留的位置进行bbox解码和还原到原图尺度
    # 3 统一nms后处理
    return det_bboxes, det_labels...
+
 ```
+
 
 ## 3 总结
 

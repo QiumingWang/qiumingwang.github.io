@@ -30,22 +30,30 @@
 
 **不好的例子:**
 
+
 ```python
+
 import datetime
 
 shijian = datetime.date.today().strftime("%y-%m-%d") # 不要用拼音
 ymdstr = datetime.date.today().strftime("%y-%m-%d") # 不要用缩略语，除非这些缩率语大家一眼能认出来，也不需要变量里面加类型。
+
 ```
+
 另外，不需要再变量名字里面加类型（str）。
 
 **改进：**:
 
+
 ```python
+
 import datetime
 
 
 current_date: str = datetime.date.today().strftime("%y-%m-%d")
+
 ```
+
 
 **[⬆ 回到顶部](#目录)**
 
@@ -54,25 +62,35 @@ current_date: str = datetime.date.today().strftime("%y-%m-%d")
 **不好的例子:**
 这里我们用了三个不同的变量名（user，client，customer）表示了同一个东西：
 
+
 ```python
+
 def get_user_info(): pass
 def get_client_data(): pass
 def get_customer_record(): pass
+
 ```
+
 
 **改进1**:
 如果你想表示同一个的东西，在函数名及任何引用到它的地方，名字都需要一致。
 
+
 ```python
+
 def get_user_info(): pass
 def get_user_data(): pass
 def get_user_record(): pass
+
 ```
+
 
 **改进2**
 Python 是一个面向对象的编程语言。可以把上面的函数封装成一个类，然后这些函数的功能就可以用类属性，类 property 方法（使用@property 装饰器，可以像访问类属性一样访问这类方法），类方法来实现。从下面这个例子中我们可以发现，在给类方法起名字的时候，我们不需要在把类名放进去，get_user_record 简化成了 get_record。
 
+
 ```python
+
 from typing import Union, Dict
 
 
@@ -89,7 +107,9 @@ class User:
 
     def get_record(self) -> Union[Record, None]:
         return Record()
+
 ```
+
 
 **[⬆ 回到顶部](#目录)**
 
@@ -99,30 +119,40 @@ class User:
 
 **不好的例子:**
 
+
 ```python
+
 import time
 
 
 # What is the number 86400 for again?
 time.sleep(86400) #魔鬼数字
+
 ```
+
 
 **改进**:
 
+
 ```python
+
 import time
 
 
 # 将它变成常量，在模块的全局域声明.
 SECONDS_IN_A_DAY = 60 * 60 * 24
 time.sleep(SECONDS_IN_A_DAY)
+
 ```
+
 **[⬆ 回到顶部](#目录)**
 
 ### 变量名要有意义
 **不好的例子:**
 
+
 ```python
+
 import re
 
 
@@ -132,13 +162,17 @@ city_zip_code_regex = r"^[^,\\]+[,\\\s]+(.+?)\s*(\d{5})?$"
 matches = re.match(city_zip_code_regex, address)
 if matches:
     print(f"{matches[1]}: {matches[2]}")
+
 ```
+
 
 **改进1**:
 
 这个比上面那个例子好一些，但是仍然强依赖正则表达式。
 
+
 ```python
+
 import re
 
 
@@ -149,13 +183,17 @@ matches = re.match(city_zip_code_regex, address)
 if matches:
     city, zip_code = matches.groups()
     print(f"{city}: {zip_code}")
+
 ```
+
 
 **改进2**:
 
 对正则表达式做一些改进，给匹配的部分起个别名。
 
+
 ```python
+
 import re
 
 
@@ -165,7 +203,9 @@ city_zip_code_regex = r"^[^,\\]+[,\\\s]+(?P<city>.+?)\s*(?P<zip_code>\d{5})?$"
 matches = re.match(city_zip_code_regex, address)
 if matches:
     print(f"{matches['city']}, {matches['zip_code']}")
+
 ```
+
 **[⬆ 回到顶部](#目录)**
 
 ### 起名不要想当然
@@ -173,7 +213,9 @@ if matches:
 
 **不好的例子:**
 
+
 ```python
+
 seq = ("Austin", "New York", "San Francisco")
 
 for item in seq:
@@ -182,11 +224,15 @@ for item in seq:
 
     # Wait, what's `item` again?
     print(item)
+
 ```
+
 
 **改进**:
 
+
 ```python
+
 locations = ("Austin", "New York", "San Francisco")
 
 for location in locations:
@@ -194,7 +240,9 @@ for location in locations:
     #do_some_other_stuff()
     # ...
     print(location)
+
 ```
+
 **[⬆ 回到顶部](#目录)**
 
 
@@ -204,21 +252,29 @@ for location in locations:
 
 **不好的例子:**
 
+
 ```python
+
 class Car:
     car_make: str
     car_model: str
     car_color: str
+
 ```
+
 
 **改进**:
 
+
 ```python
+
 class Car:
     make: str
     model: str
     color: str
+
 ```
+
 
 **[⬆ 回到顶部](#目录)**
 
@@ -228,7 +284,9 @@ class Car:
 
 Why write:
 
+
 ```python
+
 import hashlib
 
 
@@ -236,18 +294,24 @@ def create_micro_brewery(name):
     name = "Hipster Brew Co." if name is None else name
     slug = hashlib.sha1(name.encode()).hexdigest()
     # etc.
+
 ```
+
 
 **改进1**:
 
+
 ```python
+
 import hashlib
 
 
 def create_micro_brewery(name: str = "Hipster Brew Co."):
     slug = hashlib.sha1(name.encode()).hexdigest()
     # etc.
+
 ```
+
 
 **[⬆ 回到顶部](#目录)**
 ## **函数**
@@ -258,14 +322,20 @@ def create_micro_brewery(name: str = "Hipster Brew Co."):
 
 **不好的例子:**
 
+
 ```python
+
 def create_menu(title, body, button_text, cancellable):
     pass
+
 ```
+
 
 **Java-esque 表示法**:
 
+
 ```python
+
 class Menu:
     def __init__(self, config: dict):
         self.title = config["title"]
@@ -280,11 +350,15 @@ menu = Menu(
         "cancellable": False
     }
 )
+
 ```
+
 
 **改进版1**
 
+
 ```python
+
 class MenuConfig:
     """A configuration for the Menu.
 
@@ -314,11 +388,15 @@ config.button_text = "Order now!"
 config.cancellable = True
 
 create_menu(config)
+
 ```
+
 
 **改进版2**
 
+
 ```python
+
 from typing import NamedTuple
 
 
@@ -349,11 +427,15 @@ create_menu(
         button_text="Order now!"
     )
 )
+
 ```
+
 
 **改进版3**
 
+
 ```python
+
 from dataclasses import astuple, dataclass
 
 
@@ -384,11 +466,15 @@ create_menu(
         button_text="Order now!"
     )
 )
+
 ```
+
 
 **改进版4, Python3.8以上**
 
+
 ```python
+
 from typing import TypedDict
 
 
@@ -421,7 +507,9 @@ create_menu(
         cancellable=True
     )
 )
+
 ```
+
 **[⬆ 回到顶部](#目录)**
 
 ### 一个函数只需要负责一件事情
@@ -429,7 +517,9 @@ create_menu(
 
 **不好的例子:**
 
+
 ```python
+
 from typing import List
 
 
@@ -447,11 +537,15 @@ def email_clients(clients: List[Client]) -> None:
     for client in clients:
         if client.active:
             email(client)
+
 ```
+
 
 **改进1**:
 
+
 ```python
+
 from typing import List
 
 
@@ -474,13 +568,17 @@ def email_clients(clients: List[Client]) -> None:
     """
     for client in get_active_clients(clients):
         email(client)
+
 ```
+
 
 有没有发现上面这个例子里面可以使用生成器。
 
 **改进2**
 
+
 ```python
+
 from typing import Generator, Iterator
 
 
@@ -502,7 +600,9 @@ def email_client(clients: Iterator[Client]) -> None:
     """
     for client in active_clients(clients):
         email(client)
+
 ```
+
 
 
 **[⬆ 回到顶部](#目录)**
@@ -511,7 +611,9 @@ def email_client(clients: Iterator[Client]) -> None:
 
 **坏的例子:**
 
+
 ```python
+
 class Email:
     def handle(self) -> None:
         pass
@@ -519,18 +621,24 @@ class Email:
 message = Email()
 # handle 到底是干啥用的?
 message.handle()
+
 ```
+
 
 **改进**
 
+
 ```python
+
 class Email:
     def send(self) -> None:
         """Send this message"""
 
 message = Email()
 message.send()
+
 ```
+
 
 **[⬆ 回到顶部](#目录)**
 
@@ -539,7 +647,9 @@ message.send()
 
 **不好的例子:**
 
+
 ```python
+
 # type: ignore
 
 def parse_better_js_alternative(code: str) -> None:
@@ -559,11 +669,15 @@ def parse_better_js_alternative(code: str) -> None:
 
     for node in ast:
         pass
+
 ```
+
 
 **改进1**
 
+
 ```python
+
 from typing import Tuple, List, Dict
 
 
@@ -596,7 +710,9 @@ def parse(tokens: List) -> List:
         pass
 
     return syntax_tree
+
 ```
+
 
 **[⬆ 回到顶部](#目录)**
 
@@ -607,7 +723,9 @@ def parse(tokens: List) -> List:
 
 **不好的例子:**
 
+
 ```python
+
 from tempfile import gettempdir
 from pathlib import Path
 
@@ -617,11 +735,15 @@ def create_file(name: str, temp: bool) -> None:
         (Path(gettempdir()) / name).touch()
     else:
         Path(name).touch()
+
 ```
+
 
 **改进**
 
+
 ```python
+
 from tempfile import gettempdir
 from pathlib import Path
 
@@ -632,7 +754,9 @@ def create_file(name: str) -> None:
 
 def create_temp_file(name: str) -> None:
     (Path(gettempdir()) / name).touch()
+
 ```
+
 
 **[⬆ 回到顶部](#目录)**
 
@@ -647,7 +771,9 @@ def create_temp_file(name: str) -> None:
 
 **不好的例子:**
 
+
 ```python
+
 # type: ignore
 
 # fullname 是这个模块里的全局变量，是 string 类型.
@@ -667,11 +793,15 @@ split_into_first_and_last_name()
 # (expression has type "List[str]", variable has type "str")'
 print(fullname)  # ["Ryan", "McDermott"]
 
+
 ```
+
 
 **改进1**
 
+
 ```python
+
 from typing import List, AnyStr
 
 
@@ -682,11 +812,15 @@ fullname = "Ryan McDermott"
 name, surname = split_into_first_and_last_name(fullname)
 
 print(name, surname)  # => Ryan McDermott
+
 ```
+
 
 **改进2**
 
+
 ```python
+
 from dataclasses import dataclass
 
 
@@ -703,7 +837,9 @@ class Person:
 person = Person("Ryan McDermott")
 print(person.name)  # => "Ryan McDermott"
 print(person.name_as_first_and_last)  # => ["Ryan", "McDermott"]
+
 ```
+
 
 **[⬆ 回到顶部](#目录)**
 
@@ -721,7 +857,9 @@ Robert C. Martin writes:
 
 **不好的例子：**
 
+
 ```python
+
 from importlib import metadata
 
 
@@ -738,7 +876,9 @@ class VersionCommentElement:
 
 
 VersionCommentElement().render()
+
 ```
+
 
 这里的类有两个功能:
 
@@ -749,7 +889,9 @@ VersionCommentElement().render()
 
 **改进**
 
+
 ```python
+
 from importlib import metadata
 
 
@@ -770,7 +912,9 @@ class VersionCommentElement:
 
 
 VersionCommentElement(get_version("pip")).render()
+
 ```
+
 
 这样写的话，这个类只需要关注生成HTML元素。在实例化的时候，版本号作为初始化参数传了进去（版本号通过 `get_version()` 获得）。类和函数都是隔离的，任何一个发生改变都不会对另一个产生影响。
 
@@ -787,7 +931,9 @@ VersionCommentElement(get_version("pip")).render()
 
 **不好的例子：**
 
+
 ```python
+
 from dataclasses import dataclass
 
 
@@ -824,7 +970,9 @@ class TemplateView(View):
                 body=fd.read()
             )
 
+
 ```
+
 
 为了实现新的功能， `TemplateView`  类把父类的内容改了，重新写了一个 `.get()` 方法。如果父类的 `.get()`不改变还好，如果改变了，比如说加一些额外的检查，子类的`.get()` 也需要同步修改。如果这样的子类很多，难免会有错漏。
 
@@ -832,7 +980,9 @@ class TemplateView(View):
 
 **改进1**
 
+
 ```python
+
 from dataclasses import dataclass
 
 
@@ -875,7 +1025,9 @@ class TemplateView(View):
             return fd.read()
 
 
+
 ```
+
 注意我们还是需要重写`render_body()`，这样才能改变响应的内容。但这个方法的职责就是然让子类来重写来扩展功能的。
 
 另一个方式就是利用继承和聚合的优点，使用[Mixins](https://docs.djangoproject.com/en/4.1/topics/class-based-views/mixins/)。
@@ -888,7 +1040,9 @@ Mixins 类是基础类，他们就是给其它相关的类使用的。它们和�
 
 **改进2**
 
+
 ```python
+
 from dataclasses import dataclass, field
 from typing import Protocol
 
@@ -957,7 +1111,9 @@ class TemplateView(TemplateRenderMixin, ContentLengthMixin, View):
     content_type = "text/html"
     template_file = "index.html"
 
+
 ```
+
 正如你看到的，通过把相关的功能封装到一个可重用的类里面，Mixins是对象的聚合更加容易。这个封装的类也符合单一职责原则。类的扩展就通过继承这些Mixins类来实现。
 
 Django 就用了很多Mixins 来聚合它的 view 类。
@@ -981,7 +1137,9 @@ FIXME: 等`typing.Protocol` 的使用方式明确了，需要在上面那行代�
 
 **不好的例子：**
 
+
 ```python
+
 from dataclasses import dataclass
 
 
@@ -1031,19 +1189,25 @@ def render(view: View, request) -> Response:
     """Render a View"""
     return view.get(request)
 
+
 ```
+
 
 `render()` 方法应该可以和`View` 类以及它的子类`TemplateView`配合使用，但是`TemplateView`在继承的时候把`.get()`方法的签名（方法的输入输出）给改了。使用``render()` 的时候 TemplateView`会抛出一个错误。
 
 如果我们希望`render()` 可以被`View` 和它的所有派生类来使用，我们要注意不能破坏对外的接口。但是我们怎么能知道某个给定类的构成呢？输入*mypy*，当遇到类似的问题是它会抛出一个错误：
 
+
 ```
+
 error: Signature of "get" incompatible with supertype "View"
 <string>:36: note:      Superclass:
 <string>:36: note:          def get(self, request: Any) -> Response
 <string>:36: note:      Subclass:
 <string>:36: note:          def get(self, request: Any, template_file: str) -> Response
+
 ```
+
 
 ### **接口隔离原则**
 
@@ -1057,7 +1221,9 @@ Python 没有接口，但是它提供了抽象类，这和接口有一些不一�
 
 **好的例子**
 
+
 ```python
+
 
 from abc import ABCMeta, abstractmethod
 
@@ -1087,13 +1253,17 @@ def welcome_user(user_name: str, actor: Greeter):
 
 
 welcome_user("Barbara", FriendlyActor())
+
 ```
+
 现在想象下面一个场景：我们有一些PDF文档，我们想提供给我们网站的用户。我们想使用一个python web 框架来设计一个类管理这些文档。所以我们给文档设计了一个抽象基类，这个基类大而全，把一些可能用到的功能都写进去了。
 
 
 **不好的例子**
 
+
 ```python
+
 import abc
 
 
@@ -1136,13 +1306,19 @@ def view(request):
     requested_name = request.qs['name'] # We want to validate this!
     return PDFDocument.load(requested_name).data
 
+
 ```
+
 
 但是我们不可以！如果我们没有实现 `.save()` 方法，会抛出一个异常：
 
+
 ```
+
 Can't instantiate abstract class PDFDocument with abstract method save.
+
 ```
+
 
 这很烦人。我们不需要真的在这里实现`.save()`。我们可以给这个方法赋一个空的内容 或者写 `NotImplementedError`, 但是这些无用的代码我们需要避免。
 
@@ -1155,7 +1331,9 @@ Can't instantiate abstract class PDFDocument with abstract method save.
 
 **改进**
 
+
 ```python
+
 import abc
 
 
@@ -1198,7 +1376,9 @@ def view(request):
     requested_name = request.qs['name'] # We want to validate this!
     return PDFDocument.load(requested_name).data
 
+
 ```
+
 
 ### **依赖倒置原则**
 
@@ -1210,7 +1390,9 @@ def view(request):
 
 **不好的例子**
 
+
 ```python
+
 import csv
 from io import StringIO
 
@@ -1243,7 +1425,9 @@ def some_view(request):
 
    return response
 
+
 ```
+
 
 我们的第一个实现使用了 CSV writer接口。通过操作`StringIO` 对象（类似一个文件）这些使用执行了一些底层操作以向writer中写入数据。这些操作比较繁杂而且不优雅。
 
@@ -1252,7 +1436,9 @@ def some_view(request):
 
 **改进**
 
+
 ```python
+
 import csv
 
 
@@ -1277,7 +1463,9 @@ def some_streaming_csv_view(request):
        headers={'Content-Disposition': 'attachment; filename="somefilename.csv"'},
    )
 
+
 ```
+
 
 这样实现就比前面的好很多，更加优雅。它的优点很明显：用更少的代码实现了相同的功能。我们利用了 writer 类只关心参数类里`.write()`这个抽象的方法，而不关心它内部的实现细节。
 这个例子来源于
@@ -1302,7 +1490,9 @@ def some_streaming_csv_view(request):
 
 **不好的例子:**
 
+
 ```python
+
 from typing import List, Dict
 from dataclasses import dataclass
 
@@ -1366,11 +1556,15 @@ company_managers = [
     Manager(experience=5.7, github_link='https://github.com/4')
 ]
 company_managers_list = get_manager_list(managers=company_managers)
+
 ```
+
 
 **改进**
 
+
 ```python
+
 from typing import List, Dict
 from dataclasses import dataclass
 
@@ -1412,7 +1606,9 @@ company_managers = [
     Employee(experience=5.7, github_link='https://github.com/4')
 ]
 company_managers_list = get_employee_list(employees=company_managers)
+
 ```
+
 
 
 

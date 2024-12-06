@@ -94,7 +94,9 @@ Pipeline 实际上由一系列按照插入顺序运行的数据处理模块组�
 
 上图为训练和验证的和具体代码相关的整体抽象流程，对应到代码上，其核心代码如下：
 
+
 ```python
+
 #=================== tools/train.py ==================
 # 1.初始化配置
 cfg = Config.fromfile(args.config)
@@ -144,7 +146,9 @@ elif cfg.load_from:
 
 # 8.运行，开始训练
 runner.run(data_loaders, cfg.workflow, cfg.total_epochs)
+
 ```
+
 
 上面的流程比较简单，一般大家比较难以理解的是 `runner.run` 内部逻辑，下小节进行详细分析，而对于测试逻辑由于比较简单，就不详细描述了，简单来说测试流程下不需要 runner，直接加载训练好的权重，然后进行 model 推理即可。
 
@@ -157,7 +161,9 @@ runner 对象内部的 run 方式是一个通用方法，可以运行任何 work
 
 当进入对应的 workflow，则会调用 runner 里面的 train() 或者 val()，表示进行一次 epoch 迭代。其代码也非常简单，如下所示：
 
+
 ```python
+
 def train(self, data_loader, **kwargs):
     self.model.train()
     self.mode = 'train'
@@ -182,11 +188,15 @@ def val(self, data_loader, **kwargs):
             self.run_iter(data_batch, train_mode=False)
         self.call_hook('after_val_iter')
     self.call_hook('after_val_epoch')
+
 ```
+
 
 核心函数实际上是 self.run_iter()，如下：
 
+
 ```python
+
 def run_iter(self, data_batch, train_mode, **kwargs):
     if train_mode:
         # 对于每次迭代，最终是调用如下函数
@@ -198,11 +208,15 @@ def run_iter(self, data_batch, train_mode, **kwargs):
     if 'log_vars' in outputs:
         self.log_buffer.update(outputs['log_vars'],...)
     self.outputs = outputs
+
 ```
+
 
 上述 self.call_hook() 表示在不同生命周期调用所有已经注册进去的 hook，而字符串参数表示对应的生命周期。以 OptimizerHook 为例，其执行反向传播、梯度裁剪和参数更新等核心训练功能：
 
+
 ```python
+
 @HOOKS.register_module()
 class OptimizerHook(Hook):
 
@@ -215,7 +229,9 @@ class OptimizerHook(Hook):
         if self.grad_clip is not None:
             grad_norm = self.clip_grads(runner.model.parameters())
         runner.optimizer.step()
+
 ```
+
 
 可以发现 OptimizerHook 注册到的生命周期是 after_train_iter，故在每次 train() 里面运行到
 
@@ -235,17 +251,23 @@ class OptimizerHook(Hook):
 
 在 runner 中调用 `train_step` 或者 `val_step`，代码如下：
 
+
 ```python
+
 #=================== mmcv/runner/epoch_based_runner.py ==================
 if train_mode:
     outputs = self.model.train_step(data_batch,...)
 else:
     outputs = self.model.val_step(data_batch,...)
+
 ```
+
 
 实际上，首先会调用 DataParallel 中的 `train_step` 或者 `val_step` ，其具体调用流程为：
 
+
 ```python
+
 # 非分布式训练
 #=================== mmcv/parallel/data_parallel.py/MMDataParallel ==================
 def train_step(self, *inputs, **kwargs):
@@ -263,7 +285,9 @@ def val_step(self, *inputs, **kwargs):
     inputs, kwargs = self.scatter(inputs, kwargs, self.device_ids)
     # 此时才是调用 model 本身的 val_step
     return self.module.val_step(*inputs[0], **kwargs[0])
+
 ```
+
 
 可以发现，在调用 model 本身的 train_step 前，需要额外调用 scatter 函数，前面说过该函数的作用是处理 DataContainer 格式数据，使其能够组成 batch，否则程序会报错。
 
@@ -273,7 +297,9 @@ def val_step(self, *inputs, **kwargs):
 
 其核心代码如下：
 
+
 ```python
+
 #=================== mmdet/models/detectors/base.py/BaseDetector ==================
 def train_step(self, data, optimizer):
     # 调用本类自身的 forward 方法
@@ -292,7 +318,9 @@ def forward(self, img, img_metas, return_loss=True, **kwargs):
     else:
         # 测试模式
         return self.forward_test(img, img_metas, **kwargs)
+
 ```
+
 
 `forward_train` 和 `forward_test` 需要在不同的算法子类中实现，输出是 Loss 或者 预测结果。
 
@@ -302,7 +330,9 @@ def forward(self, img, img_metas, return_loss=True, **kwargs):
 
 对于 `TwoStageDetector` 而言，其核心逻辑是：
 
+
 ```python
+
 #============= mmdet/models/detectors/two_stage.py/TwoStageDetector ============
 def forward_train(...):
     # 先进行 backbone+neck 的特征提取
@@ -322,11 +352,15 @@ def forward_train(...):
     roi_losses = self.roi_head.forward_train(x, ...)
     losses.update(roi_losses)
     return losses
+
 ```
+
 
 对于 `SingleStageDetector` 而言，其核心逻辑是：
 
+
 ```python
+
 #============= mmdet/models/detectors/single_stage.py/SingleStageDetector ============
 def forward_train(...):
     super(SingleStageDetector, self).forward_train(img, img_metas)
@@ -335,7 +369,9 @@ def forward_train(...):
     # 主要是调用 bbox_head 内部的 forward_train 方法
     losses = self.bbox_head.forward_train(x, ...)
     return losses
+
 ```
+
 
 如果再往里分析，那就到各个 Head 模块的训练环节了，这部分内容请读者自行分析，应该不难。
 

@@ -13,7 +13,9 @@ image:
 
 # Model 组件
 ## Backbone
+
 ```python
+
 model = dict(
     type='FasterRCNN',
     pretrained='torchvision://resnet50',  ## 使用 pytorch 提供的在 imagenet 上面训练过的权重作为预训练权重
@@ -35,7 +37,9 @@ model = dict(
         norm_eval=True,
         # 默认采用 pytorch 模式
         style='pytorch'),
+
 ```
+
 > [!NOTE]
 > 虽然resnet常规来说是有5层的，但是一般第一层，也就是第一个卷积是没人用的
 
@@ -49,7 +53,9 @@ model = dict(
 
 
 ## FPN
+
 ```python
+
 neck=dict(
         type='FPN',
         # ResNet 模块输出的4个尺度特征图通道数
@@ -58,7 +64,9 @@ neck=dict(
         out_channels=256,
         # FPN 输出特征图个数
         num_outs=5),
+
 ```
+
 详细流程是：
 
 - 将c2 c3 c4 c5 4 个特征图全部经过各自 1x1 卷积进行通道变换变成 m2~m5，输出通道统一为 256
@@ -74,7 +82,9 @@ neck=dict(
 > 最后一个层通常没有indice，叫做pooling
 
 ## RPN
+
 ```python
+
 rpn_head=dict(
         type='RPNHead',  # RPN网络类型
         in_channels=256,  # RPN网络的输入通道数，也是FPN 层输出特征图通道数
@@ -87,11 +97,15 @@ rpn_head=dict(
         loss_cls=dict(
             type='CrossEntropyLoss', use_sigmoid=True, loss_weight=1.0),
         loss_bbox=dict(type='SmoothL1Loss', beta=1.0 / 9.0, loss_weight=1.0)),
+
 ```
+
 
 模型可训练结构比较简单
 一个卷积进行特征通道变换，加上两个输出分支即可。models/anchor_heads/rpn_head.py 具体代码如下：
+
 ```python
+
 def _init_layers(self):
         # 特征通道变换
         self.rpn_conv = nn.Conv2d(
@@ -102,13 +116,17 @@ def _init_layers(self):
                                  self.num_anchors * self.cls_out_channels, 1)
         # 回归分支，固定输出4个数值，表示基于 anchor 的变换值
         self.rpn_reg = nn.Conv2d(self.feat_channels, self.num_anchors * 4, 1)
+
 ```
+
 
 ### BBox Assigner
 相比不包括 FPN 的 Faster R-CNN 算法，由于其 RPN Head 是多尺度特征图，为了适应这种变化，anchor 设置进行了适当修改，FPN 输出的多尺度信息可以帮助区分不同大小物体识别问题，每一层就不再需要不包括 FPN 的 Faster R-CNN 算法那么多 anchor 了。
 
 <large>因此，在train cfg中设置了一系列的操作</large>
+
 ```python
+
 rpn=dict(
             assigner=dict(
                 type='MaxIoUAssigner', # RPN网络的正负样本划分
@@ -133,7 +151,9 @@ rpn=dict(
             # 正样本权重，-1表示不改变
             pos_weight=-1,
             debug=False),
+
 ```
+
 核心参数的具体含义是：
 
 - num = 256 表示采样后每张图片的样本总数，`pos_fraction` 表示其中的正样本比例，具体是正样本采样 128 个，那么理论上负样本采样也是 128 个
@@ -142,7 +162,9 @@ rpn=dict(
 
 其实现过程比较简单，如下所示：
 
+
 ```python
+
 if self.add_gt_as_proposals and len(gt_bboxes) > 0:
     # 增加 gt 作为 proposals
     bboxes = torch.cat([gt_bboxes, bboxes], dim=0)
@@ -171,11 +193,15 @@ neg_inds = self.neg_sampler._sample_neg(
     assign_result, num_expected_neg, bboxes=bboxes, **kwargs)
 # 去重  
 neg_inds = neg_inds.unique()
+
 ```
+
 
 而具体的随机采样函数如下所示：
 
+
 ```python
+
 # 随机采样正样本
 def _sample_pos(self, assign_result, num_expected, **kwargs):
     """Randomly sample some positive samples."""
@@ -197,7 +223,9 @@ def _sample_neg(self, assign_result, num_expected, **kwargs):
         return neg_inds
     else:
         return self.random_choice(neg_inds, num_expected)
+
 ```
+
 
 经过随机采样函数后，可以有效控制 RPN 网络计算 loss 时正负样本平衡问题。
 
@@ -208,7 +236,9 @@ def _sample_neg(self, assign_result, num_expected, **kwargs):
 2. 训练过程中引入 anchor 信息，加快收敛
 
 RetinaNet 采用的编解码函数是主流的 DeltaXYWHBBoxCoder，其配置如下：
+
 ```python
+
 rpn_head=dict(
         type='RPNHead',
         in_channels=256,
@@ -225,7 +255,9 @@ rpn_head=dict(
         loss_cls=dict(
             type='CrossEntropyLoss', use_sigmoid=True, loss_weight=1.0),
         loss_bbox=dict(type='L1Loss', loss_weight=1.0)),
+
 ```
+
 target_means 和 target_stds 相当于对 bbox 回归的 4 个 $t_x$$t_y$$t_w$$t_h$ 进行变换。在不考虑 target_means 和 target_stds 情况下，其编码公式如下：
 $$
 t_x^* = \frac{x-x_a}{w_a}, t_y^* = \frac{y-y_a}{h_a}; \\
@@ -234,7 +266,9 @@ $$
 
 
 编码过程
+
 ```python
+
 dx = (gx - px) / pw
 dy = (gy - py) / ph
 dw = torch.log(gw / pw)
@@ -244,10 +278,14 @@ deltas = torch.stack([dx, dy, dw, dh], dim=-1)
 means = deltas.new_tensor(means).unsqueeze(0)
 stds = deltas.new_tensor(stds).unsqueeze(0)
 deltas = deltas.sub_(means).div_(stds)
+
 ```
+
 解码过程是编码过程的反向，比较容易理解，其核心代码如下：
 
+
 ```python
+
 # 先乘上 std，加上 mean
 means = deltas.new_tensor(means).view(1, -1).repeat(1, deltas.size(1) // 4)
 stds = deltas.new_tensor(stds).view(1, -1).repeat(1, deltas.size(1) // 4)
@@ -267,19 +305,27 @@ x1 = gx - gw * 0.5
 y1 = gy - gh * 0.5
 x2 = gx + gw * 0.5
 y2 = gy + gh * 0.5
+
 ```
 
+
 ### Loss
+
 ```python
+
 loss_cls=dict(
     type='CrossEntropyLoss', use_sigmoid=True, loss_weight=1.0),
 loss_bbox=dict(type='L1Loss', loss_weight=1.0)),
+
 ```
+
 RPN 采用的 loss 是常用的 ce loss 和 l1 loss，不需要详细描述。
 
 
 ## ROIHead
+
 ```python
+
 bbox_roi_extractor=dict(
         type='SingleRoIExtractor',                                   # RoIExtractor类型
         # ROI具体参数：ROI类型为ROIalign，输出尺寸为7，sample数为2
@@ -307,7 +353,9 @@ bbox_roi_extractor=dict(
         loss_cls=dict(
             type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0),
         loss_bbox=dict(type='SmoothL1Loss', beta=1.0, loss_weight=1.0)))
+
 ```
+
 这里多了一个ROI extractor
 
 1. RPN 层输出每张图片最多 `nms_post` 个候选框，故 R-CNN 输入 shape 为 `(batch, nms_post, 4)`，4 表示 RoI 坐标。
@@ -323,7 +371,9 @@ $$k=\lfloor k_0 + log_2(\sqrt{wh}/224)\rfloor$$
 - wh<224x224 并且 wh>=112x112，则分配给 p3
 - 其余分配给 p2
 
+
 ```python
+
 def map_roi_levels(self, rois, num_levels):
     """Map rois to corresponding feature levels by scales.
 
@@ -337,11 +387,15 @@ def map_roi_levels(self, rois, num_levels):
     target_lvls = torch.floor(torch.log2(scale / self.finest_scale + 1e-6))
     target_lvls = target_lvls.clamp(min=0, max=num_levels - 1).long()
     return target_lvls
+
 ```
+
 其中 `finest_scale=56，num_level=5`。
 
 然后经过两层分类和回归共享全连接层 FC，最后是各自的输出头，其 forward 逻辑如下：
+
 ```python
+
 if self.num_shared_fcs > 0:
     x = x.flatten(1)
     # 两层共享 FC
@@ -355,11 +409,15 @@ x_reg = x
 cls_score = self.fc_cls(x_cls) if self.with_cls else None
 bbox_pred = self.fc_reg(x_reg) if self.with_reg else None
 return cls_score, bbox_pred
+
 ```
+
 最终输出分类和回归预测结果。相比于目前主流的全卷积模型，Faster R-CNN 的 R-CNN 模块依然采用的是全连接模式。
 
 ### 训练逻辑
+
 ```python
+
 rcnn=dict(
     assigner=dict(
         # 和 RPN 一样，正负样本定义参数不同
@@ -377,7 +435,9 @@ rcnn=dict(
         neg_pos_ub=-1,
         # True，RPN 中为 False
         add_gt_as_proposals=True)
+
 ```
+
 
 理论上，BBox Assigner 和 BBox Sampler 逻辑可以放置在 _(1) 公共部分_ 后面，因为其任务是输入每张图片的 `nms_post` 个候选框以及标注的 gt bbox 信息，然后计算每个候选框样本的正负样本属性，最后再进行随机采样尽量保证样本平衡。R-CNN的候选框对应了 RPN 阶段的 anchor，只不过 RPN 中的 anchor 是预设密集的，而 R-CNN 面对的 anchor 是动态稀疏的，RPN 阶段基于 anchor 进行分类回归对应于 R-CNN 阶段基于候选框进行分类回归，思想是完全一致的，故 Faster R-CNN 类算法叫做 two-stage，因此可以简化为 **one-stage** + RoI 区域特征提取 + **one-stage**。
 
@@ -390,7 +450,9 @@ rcnn=dict(
 
 
 ### 整体逻辑
+
 ```python
+
 if self.with_bbox or self.with_mask:
     num_imgs = len(img_metas)
     sampling_results = []
@@ -427,11 +489,15 @@ if self.with_mask:
                                             gt_masks, img_metas)
     losses.update(mask_results['loss_mask'])
 return losses
+
 ```
+
 
 `_bbox_forward_train` 逻辑和 RPN 非常类似，只不过多了额外的 RoI 区域特征提取步骤：
 
+
 ```python
+
 def _bbox_forward_train(self, x, sampling_results, gt_bboxes, gt_labels,
                         img_metas):
     rois = bbox2roi([res.bboxes for res in sampling_results])
@@ -449,11 +515,15 @@ def _bbox_forward_train(self, x, sampling_results, gt_bboxes, gt_labels,
                                     *bbox_targets)
     bbox_results.update(loss_bbox=loss_bbox)
     return bbox_results
+
 ```
+
 
 `_bbox_forward` 逻辑是 R-CNN 的重点：
 
+
 ```python
+
 def _bbox_forward(self, x, rois):
     # 特征重映射+ RoI 区域特征提取，仅仅考虑前 num_inputs 个特征图
     bbox_feats = self.bbox_roi_extractor(
@@ -469,15 +539,21 @@ def _bbox_forward(self, x, rois):
     bbox_results = dict(
         cls_score=cls_score, bbox_pred=bbox_pred, bbox_feats=bbox_feats)
     return bbox_results
+
 ```
 
+
 ### 测试逻辑
+
 ```python
+
 rcnn=dict(
     score_thr=0.05,
     nms=dict(type='nms', iou_threshold=0.5),
     max_per_img=100)
+
 ```
+
 测试逻辑核心逻辑如下：
 
 - 公共逻辑部分输出 batch * nms_post 个候选框的分类和回归预测结果
@@ -485,7 +561,9 @@ rcnn=dict(
 
 
 # Dataset组件
+
 ```python
+
 # dataset settings
 dataset_type = 'CocoDataset'                # 数据集类型
 data_root = 'data/coco/'                    # 数据集根目录
@@ -527,10 +605,14 @@ data = dict(
         with_mask=False,                    
         with_label=False,                   
         test_mode=True)) 
+
 ```
 
+
 # Optimizer
+
 ```python
+
 # optimizer
 optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0001)   # 优化参数，lr为学习率，momentum为动量因子，weight_decay为权重衰减因子
 optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))          # 梯度均衡参数
@@ -542,10 +624,14 @@ lr_config = dict(
     warmup_ratio=1.0 / 3,                 # 起始的学习率
     step=[8, 11])                         # 在第8和11个epoch时降低学习率
 checkpoint_config = dict(interval=1)      # 每1个epoch存储一次模型
+
 ```
 
+
 # Log控制器
+
 ```python
+
 # yapf:disable
 log_config = dict(
     interval=50,                          # 每50个batch输出一次信息
@@ -554,10 +640,14 @@ log_config = dict(
         # dict(type='TensorboardLoggerHook')
     ])
 # yapf:enable
+
 ```
 
+
 # 运行时环境（runtime）设置
+
 ```python
+
 # runtime settings
 total_epochs = 12                               # 最大epoch数
 dist_params = dict(backend='nccl')              # 分布式参数
@@ -566,4 +656,6 @@ work_dir = './work_dirs/faster_rcnn_r50_fpn_1x' # log文件和模型文件存储
 load_from = None                                # 加载模型的路径，None表示从预训练模型加载
 resume_from = None                              # 恢复训练模型的路径
 workflow = [('train', 1)]                       # 当前工作区名称
+
 ```
+

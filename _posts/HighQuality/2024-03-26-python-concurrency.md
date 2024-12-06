@@ -32,7 +32,9 @@ python 多线程因为存在GIL锁，而基本上没有用，基本上只能用�
 - 通过集成`Process`类然后重写`run()`方法
 
 示例
+
 ```python
+
 from multiprocessing import  Process
 
 # 方法1
@@ -54,11 +56,15 @@ class MyProcess(Process): #继承Process类
 
 p = MyProcess('Python') #实例化进程对象
 p.start()
+
 ```
 
 
+
 ## Process类介绍
+
 ```bash
+
 构造方法：
 
 Process([group [, target [, name [, args [, kwargs]]]]])
@@ -78,7 +84,9 @@ Process([group [, target [, name [, args [, kwargs]]]]])
 　　daemon：和线程的setDeamon功能一样
 　　name：进程名字
 　　pid：进程号
+
 ```
+
 
 
 ## 多线程通信
@@ -88,7 +96,9 @@ Process([group [, target [, name [, args [, kwargs]]]]])
 ### 进程对列Queue
 
 Queue是线程安全的，可以作为数据管道。
+
 ```python
+
 from multiprocessing import Process,Queue
 
 
@@ -113,11 +123,15 @@ if __name__ == '__main__':
     print(q.get())
     print(q.get())
     print('结束测试')
+
 ```
 
 
+
 ### 管道Pipe
+
 ```python
+
 from multiprocessing import Process, Pipe
 def fun1(conn):
     print('子进程发送消息：')
@@ -136,13 +150,17 @@ if __name__ == '__main__':
     conn1.send("你好子进程")
     p.join()  
     print('结束测试')
+
 ```
+
 
 ### Messager
 
 Queue和Pipe只是实现了数据交互，并没实现数据共享，即一个进程去更改另一个进程的数据。那么久要用到Managers
 
+
 ```python
+
 from multiprocessing import Process, Manager
 
 def fun1(dic,lis,index):
@@ -167,12 +185,18 @@ if __name__ == '__main__':
             res.join()
         print(dic)
         print(l)
+
 ```
+
 结果
+
 ```bash
+
 {0: 'a', '2': 'b', 3: 'a', 1: 'a', 2: 'a', 4: 'a', 5: 'a', 7: 'a', 6: 'a', 8: 'a', 9: 'a'}
 [0, 1, 2, 3, 4, 0, 3, 1, 2, 4, 5, 7, 6, 8, 9]
+
 ```
+
 
 ## 进程池（类似于Process对象）
 
@@ -182,7 +206,9 @@ if __name__ == '__main__':
 - apply：同步，一般不使用
 - apply_async：异步
 
+
 ```python
+
 from  multiprocessing import Process,Pool
 import os, time, random
 
@@ -202,9 +228,13 @@ if __name__=='__main__':
     pool.close()
     pool.join()
     print('结束测试')
+
 ```
+
 输出：
+
 ```bash
+
 Run task 0 (13216)...
 Run task 1 (13217)...
 Task 0 runs 1.88 seconds.
@@ -216,7 +246,9 @@ Run task 4 (13217)...
 Task 4 runs 0.59 seconds.
 Task 2 runs 1.98 seconds.
 结束测试
+
 ```
+
 
 > [!Note]
 >  可以观察到：每次只能同时运行两个进程，一个进程结束了才能开始另一个进程。
@@ -227,7 +259,9 @@ Task 2 runs 1.98 seconds.
 
 直接将可迭代对象导入到函数，省得for循环。
 
+
 ```python
+
 from  multiprocessing import Process,Pool
 import os, time, random
 
@@ -248,7 +282,9 @@ if __name__=='__main__':
     pool.close()
     pool.join()
     print('结束测试')
+
 ```
+
 
 
 
@@ -285,7 +321,9 @@ if __name__=='__main__':
 ![500*500](assets/img/v2-05a2032eb18f9c573963fb48d060ff80_720w.webp)
 
 示例程序：
+
 ```python
+
 import asyncio
 import aiohttp
 
@@ -305,7 +343,9 @@ async def main():
 
 
 asyncio.run(main())
+
 ```
+
 
 
 > Ref: [协程大全](https://www.cnblogs.com/Amd794/p/18162269), [python高级编程](https://cloud.tencent.com/developer/article/2270470)
@@ -317,7 +357,9 @@ asyncio.run(main())
 ## 生产者消费者问题
 
 多进程：
+
 ```python
+
 import multiprocessing
 import random
 import time
@@ -378,10 +420,14 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 ```
 
+
 协程：
+
 ```python
+
 import asyncio
 import random
 
@@ -423,14 +469,18 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 ```
+
 
 ## 吸烟者问题
 
 假设一个系统有三个抽烟者进程和一.个供应者进程。每个抽烟者不停地卷烟并抽掉它，但是要卷起并抽掉一-支烟，抽烟者需要有三种材料:烟草、纸和胶水。三个抽烟者中，第一个拥有烟草、第二个拥有纸、第三个拥有胶水。供应者进程无限地提供三种材料，供应者每次将两种材料放桌子上，拥有剩下那种材料的抽烟者卷一 根烟并抽掉它，并给供应者进程一个信号告诉完成了，供应者就会放另外两种材料在桌上，这个过程一直重复(让三个抽烟者轮流地抽烟)
 
 多进程：
+
 ```python
+
 import multiprocessing
 import random
 import time
@@ -493,10 +543,14 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 ```
 
+
 协程：
+
 ```python
+
 import asyncio
 import random
 
@@ -550,7 +604,9 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 ```
+
 
 ## 读者写者问题
 
@@ -561,7 +617,9 @@ if __name__ == "__main__":
 
 
 多进程：
+
 ```python
+
 import multiprocessing
 import random
 import time
@@ -627,7 +685,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 ```
+
 
 协程：
 > [!WARNING]
@@ -636,7 +696,9 @@ if __name__ == "__main__":
 > 
 > 在`asyncio.run()`外部启动的`Semaphore`将获取asyncio“默认”循环，因此不能与通过`asyncio.run()`创建的事件循环一起使用。
 
+
 ```python
+
 import asyncio
 import random
 import time
@@ -690,7 +752,9 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 ```
+
 
 ## 哲学家进餐问题
 
@@ -699,7 +763,9 @@ if __name__ == "__main__":
 方法：多加一把锁，让哲学家同时取到两个筷子
 
 多进程：
+
 ```python
+
 import multiprocessing
 import time
 import random
@@ -741,10 +807,14 @@ if __name__ == "__main__":
     # 等待所有哲学家进程结束
     for process in philosopher_processes:
         process.join()
+
 ```
 
+
 协程：
+
 ```python
+
 import asyncio
 import random
 
@@ -775,10 +845,14 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 ```
 
+
 协程：
+
 ```python
+
 import asyncio
 import random
 
@@ -808,4 +882,5 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 ```

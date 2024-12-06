@@ -30,9 +30,13 @@ zsh并不使用/etc/profile文件，而是使用/etc/zsh/下面的zshenv、zprof
 
 ## 解决方案
 在/etc/zsh/profile里面添加
+
 ```bash
+
 source /etc/profile
+
 ```
+
 
 
 

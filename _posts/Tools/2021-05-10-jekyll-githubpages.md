@@ -33,7 +33,9 @@ tags:
 ## 实现gitpage上的评论模块——使用utterances
 登录[官网](https://utteranc.es/)，按照说明进行配置和选择（千万不要忘记为你的repo安装utterances app）。评论模块的主题这里，我选择可以适应浏览端操作系统亮暗风格的*preferred-color-scheme*，最后生成如下script代码：
 
+
 ```javascript
+
 <script src="https://utteranc.es/client.js"
   repo="zjpzhao/zjpzhao.github.io"
   issue-term="title"
@@ -42,7 +44,9 @@ tags:
   crossorigin="anonymous"
   async>
 </script>
+
 ```
+
 
 >注意repo="zjpzhao/zjpzhao.github.io"不能带最后的slash（形如：~~repo="zjpzhao/zjpzhao.github.io/"~~） 
 
@@ -79,13 +83,17 @@ _按照配置样例修改settings.json_
 <br>
 
 在*settings.json*中加入
+
 ```json
+
 "pasteImage.showFilePathConfirmInputBox": true,
 "pasteImage.path": "${projectRoot}/assets/img/${currentFileNameWithoutExt}",
 "pasteImage.basePath": "${projectRoot}",
 "pasteImage.forceUnixStyleSeparator": true,
 "pasteImage.prefix": "/"
+
 ```
+
 （以上代码参照vscode插件Extension: *Paste Image*下载处教程）
 效果如下：
 

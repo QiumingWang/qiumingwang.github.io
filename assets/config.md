@@ -1,4 +1,6 @@
+
 ```json
+
 {
   "minimal-style@@h1-size": "2em",
   "minimal-style@@h2-size": "1.5em",
@@ -92,7 +94,9 @@
   "blue-topaz-theme@@font-weight-inline-code": "small",
   "Blue-Topaz-Codebox-Highlight@@blur-codebox-frosted-glass": 2
 }
+
 ```
+
 
 https://images5.alphacoders.com/765/765996.jpg
 https://images4.alphacoders.com/132/1328557.png
