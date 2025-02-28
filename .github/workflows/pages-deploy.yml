@@ -53,8 +53,8 @@ jobs:
       - name: Test site
         run: |
           bundle exec htmlproofer _site \
-            --disable-external true \
-            --allow_missing_href true \  # 关闭所有链接检查
+            --disable-external \
+            --allow_missing_href \  # 关闭所有链接检查
             --enforce_https false \
             --ignore-urls "/^https?:\/\//,/^http:\/\/127\.0\.0\.1/,/^http:\/\/0\.0\.0\.0/,/^http:\/\/localhost/"
 
