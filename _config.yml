@@ -154,7 +154,7 @@ kramdown:
       line_numbers: true
       start_line: 1
   extensions:
-  - custom_container:
+    - custom_container:
       # 将 [!WARNING] 映射到 HTML 的 div 容器
       warning:
         class: alert alert-warning
