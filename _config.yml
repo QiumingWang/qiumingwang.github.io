@@ -6,7 +6,8 @@ theme: jekyll-theme-chirpy
 # Change the following value to '/PROJECT_NAME' ONLY IF your site type is GitHub Pages Project sites
 # and doesn't have a custom domain.
 # The base URL of your site
-baseurl: "https://qiumingwang.github.io"
+# baseurl: "https://qiumingwang.github.io" # 仓库名称
+image_path: "/assets/img" # the base path for images
 
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
@@ -92,6 +93,8 @@ theme_mode:   # [light|dark]
 # e.g. 'https://cdn.com'
 img_cdn:
 
+
+
 # the avatar on sidebar, support local or CORS resources
 avatar: /assets/img/avatar.jpg
 
@@ -134,6 +137,9 @@ pwa:
 paginate: 10
 
 # ------------ The following options are not recommended to be modified ------------------
+
+markdown: karamdown
+permalink: pretty
 
 kramdown:
   footnote_backlink: "&#8617;&#xfe0e;"
@@ -181,6 +187,15 @@ defaults:
       path: assets/js/dist
     values:
       swcache: true
+  # 资源文件夹配置
+  - scope:
+      path: "assets/img"
+    values:
+      image: true
+
+# 确保构建时包含assets文件夹
+include:
+  - assets
 
 sass:
   style: compressed
