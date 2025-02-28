@@ -2,6 +2,7 @@ require 'openssl'
 require 'base64'
 require 'digest'
 require 'bcrypt'
+require 'nokogiri'
 
 def bin2hex(str)
   str.unpack('C*').map{ |b| "%02x" % b }.join('')
