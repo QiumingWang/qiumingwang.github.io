@@ -53,8 +53,8 @@ jobs:
       - name: Test site
         run: |
           bundle exec htmlproofer _site \
-            --allow-missing-href=true \  # 关闭所有链接检查
-            --enforce-https=false \
+            --disable-external \
+            --allow-missing-href \  # 关闭所有链接检查
             --ignore-urls "/^https?:\/\//,/^http:\/\/127\.0\.0\.1/,/^http:\/\/0\.0\.0\.0/,/^http:\/\/localhost/"
 
       - name: Set up Python 3.10
