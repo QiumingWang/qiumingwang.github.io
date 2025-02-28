@@ -54,7 +54,7 @@ jobs:
         run: |
           bundle exec htmlproofer _site \
             --disable-external \
-            --disable-checks links \  # 关闭所有链接检查
+            --no-check-links \  # 关闭所有链接检查
             --ignore-urls "/^https?:\/\//,/^http:\/\/127\.0\.0\.1/,/^http:\/\/0\.0\.0\.0/,/^http:\/\/localhost/"
 
       - name: Set up Python 3.10
