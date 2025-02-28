@@ -15,5 +15,4 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
 gem "bcrypt", "~> 3.1", :platforms => :ruby
 
-gem 'nokogiri', '~> 1.11.0'
 
