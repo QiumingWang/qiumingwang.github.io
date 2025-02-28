@@ -138,7 +138,7 @@ paginate: 10
 
 # ------------ The following options are not recommended to be modified ------------------
 
-markdown: karamdown
+markdown: kramdown
 permalink: pretty
 
 kramdown:
