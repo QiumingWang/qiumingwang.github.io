@@ -103,7 +103,7 @@ toc: true
 
 comments:
   # Global switch for the post-comment system. Keeping it empty means disabled.
-  provider: # [disqus | utterances | giscus]
+  provider: giscus # [disqus | utterances | giscus]
   # The provider options are as follows:
   disqus:
     shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
@@ -113,11 +113,11 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: # <gh-username>/<repo>
-    repo_id:
-    category:
-    category_id:
-    mapping: # optional, default to 'pathname'
+    repo: qiumingwang/qiumingwang.github.io # <gh-username>/<repo>
+    repo_id: R_kgDOK_iZfw
+    category: General
+    category_id: DIC_kwDOK_iZf84CncKa
+    mapping: pathname # optional, default to 'pathname'
     strict: # optional, default to '0'
     input_position: # optional, default to 'bottom'
     lang: # optional, default to the value of `site.lang`
@@ -153,6 +153,14 @@ kramdown:
     block:
       line_numbers: true
       start_line: 1
+  extensions:
+  - custom_container:
+      # 将 [!WARNING] 映射到 HTML 的 div 容器
+      warning:
+        class: alert alert-warning
+        title: "⚠️ Warning"
+      note: { class: alert alert-info, title: "ℹ️ Note" }
+      tip: { class: alert alert-success, title: "💡 Tip" }
 
 collections:
   tabs:
