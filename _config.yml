@@ -142,7 +142,7 @@ markdown: kramdown
 permalink: pretty
 
 kramdown:
-  math_engine: MathJax
+  math_engine: mathjax
   footnote_backlink: "&#8617;&#xfe0e;"
   syntax_highlighter: rouge
   syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
