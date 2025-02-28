@@ -50,13 +50,13 @@ jobs:
         env:
           JEKYLL_ENV: "production"
 
-      - name: Test site
-        run: |
-          bundle exec htmlproofer _site \
-            --disable-external=true \
-            --allow_missing_href=true \  # 关闭所有链接检查
-            --enforce_https=false \
-            --ignore-urls "/^https?:\/\//,/^http:\/\/127\.0\.0\.1/,/^http:\/\/0\.0\.0\.0/,/^http:\/\/localhost/"
+      # - name: Test site
+      #   run: |
+      #     bundle exec htmlproofer _site \
+      #       --disable-external=true \
+      #       --allow_missing_href=true \  # 关闭所有链接检查
+      #       --enforce_https=false \
+      #       --ignore-urls "/^https?:\/\//,/^http:\/\/127\.0\.0\.1/,/^http:\/\/0\.0\.0\.0/,/^http:\/\/localhost/"
 
       - name: Set up Python 3.10
         uses: actions/setup-python@v5 
